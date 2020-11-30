@@ -1,6 +1,6 @@
 # tj-project
 
-> A Vue.js project
+> A Vue.js project(练习ing)
 
 ## Build Setup
 
