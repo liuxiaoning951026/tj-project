@@ -1,16 +1,18 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <componentsA></componentsA>
+    <npm-components></npm-components>
     <router-view/>
   </div>
 </template>
 
 <script>
-import componentsA from '../node_modules/components-liuning/npm-components.vue'
+// import npmComponents from './components/npm-components.vue'
+// import componentsA from '../node_modules/components-liuning/npm-components.vue'
 export default {
-  name: 'App',
-  components: { componentsA }
+  // components: { npmComponents },
+  name: 'App'
+  // components: { componentsA }
 }
 </script>
 
