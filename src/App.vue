@@ -1,13 +1,16 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <componentsA></componentsA>
     <router-view/>
   </div>
 </template>
 
 <script>
+import componentsA from '../node_modules/components-liuning/npm-components.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: { componentsA }
 }
 </script>
 
