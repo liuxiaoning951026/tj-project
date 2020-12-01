@@ -34,7 +34,7 @@
     "babel-register": "^6.22.0",
     "chalk": "^2.0.1",
     "chromedriver": "^2.27.2",
-    "components-liuning": "https://registry.npmjs.org/components-liuning/-/components-liuning-1.3.0.tgz",
+    "components-liuning": "https://registry.npmjs.org/components-liuning/-/components-liuning-1.4.0.tgz",
     "copy-webpack-plugin": "^4.0.1",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",
