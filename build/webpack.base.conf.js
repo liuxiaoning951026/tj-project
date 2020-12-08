@@ -21,10 +21,10 @@ const createLintingRule = () => ({
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
+  entry: {         // 页面入口位置
     app: './src/main.js'
   },
-  output: {
+  output: {        // 入口输出位置
     path: config.build.assetsRoot,
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
