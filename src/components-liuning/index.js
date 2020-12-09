@@ -1,6 +1,6 @@
 // components文件夹下寻找所有.vue格式的文件
 import Vue from 'vue'
-const files = require.context('../components', true, /\.vue$/)
+const files = require.context('../components-liuning', true, /\.vue$/)
 // console.log('dfdf', files.keys()) // ['./HelloWorld.vue', './npm-components.vue']
 let pages = {}
 files.keys().forEach(key => {

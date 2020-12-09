@@ -1,9 +1,9 @@
 {
-  "name": "tj-project",
-  "version": "1.0.0",
+  "name": "components-liuning",
+  "version": "1.5.0",
   "description": "A Vue.js project",
   "author": "liuning <liuning@idss-cn.com>",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -85,5 +85,14 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "]"
+  },
+  "license": "ISC"
 }
