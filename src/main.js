@@ -12,6 +12,7 @@ import router from './router'
 
 // 使用vue.use的方式注册全局组件
 import components from '@components'
+// import components from '../node_modules/components-liuning'
 Vue.use(components)
 
 Vue.config.productionTip = false
