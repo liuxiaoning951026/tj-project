@@ -2,6 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <npm-components></npm-components>
+    <el-button size="small" type="primary">这是按钮</el-button>
     <router-view/>
   </div>
 </template>
