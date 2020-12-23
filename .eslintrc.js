@@ -1,17 +1,21 @@
 // https://eslint.org/docs/user-guide/configuring
 
 module.exports = {
-  root: true,
+  root: true,   //此项是用来告诉eslint找当前配置文件不能往父级查找
   parserOptions: {
     parser: 'babel-eslint'
   },
   env: {
     browser: true,
+    "node": true,
+    "commonjs": true,
+    "es6": true,
+    "amd": true
   },
   extends: [
     // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
     // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential', 
+    'plugin:vue/essential',
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard'
   ],
