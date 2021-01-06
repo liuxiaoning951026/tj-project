@@ -23,7 +23,7 @@ export default {
   created () {
     axios({
       method: 'get',
-      url: '/mock/aaa.json'
+      url: 'api/mock/aaa.json'
     })
   }
   // components: { componentsA }
