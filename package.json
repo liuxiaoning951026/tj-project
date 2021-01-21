@@ -20,8 +20,10 @@
     "commitizen": "^4.2.2",
     "echarts": "^5.0.0",
     "element-ui": "^2.14.1",
+    "express": "^4.17.1",
     "jsonfile": "^6.1.0",
     "koa-bodyparser": "^4.3.0",
+    "mockjs": "^1.1.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
