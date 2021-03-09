@@ -23,7 +23,9 @@ export default {
   created () {
     axios({
       method: 'get',
-      url: 'api/mock/aaa.json'
+      url: '/api/aaa'
+    }).then(data => {
+      console.log(data)
     })
   }
   // components: { componentsA }

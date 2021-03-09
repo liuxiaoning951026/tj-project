@@ -3,19 +3,23 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-
 module.exports = {
   dev: {
 
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'http://localhost:18080',
+        changeOrigin: true // false也可
+      },
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // npm run serve 编译时读取的端口号
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-

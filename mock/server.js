@@ -1,42 +1,61 @@
-const Koa = require('koa')
+/**
+ * Mock服务，依赖Koa
+ * 1. 请求URL路径（动态)
+ * 2. JSON注释问题
+ * 3. Get/Post问题
+ * 4. Mock手动填写
+ * Created by ligang on 2018/5/30.
+ */
 const path = require('path')
+const fs = require('fs')
 const http = require('http')
-const KoaRouter = require('koa-router')
-const KoaBody = require('koa-bodyparser')
+
+const Koa = require('koa')
+const bodyParser = require('koa-bodyparser')
+const Router = require('koa-router')
 let jsonfile = require('jsonfile')
-KoaBody({ multipart: true })
+jsonfile.spaces = 4
+
 const app = new Koa()
-const router = new KoaRouter()
+const router = new Router()
 
-app
-  .use(KoaBody())
-  .use(router.routes())
-  .use(router.allowedMethods())
-  .use(async ctx => {
-    let url = ctx.request.url
-    console.log(url)
-    const replaceAPI = ctx.request.url.startsWith('/api')
-    let filePath = path.join(__dirname, (replaceAPI ? ctx.request.path.replace('/api/', '') : ctx.request.path).replace('/query', '').replace(/\/delete$/, '') + '.json')
-    let data = jsonfile.readFileSync(filePath)
-    console.log(data)
-    ctx.set('Content-Type', 'application/json')
+router.use(function (ctx, next) {
+  ctx.set('Cache-Control', 'no-cache')
+  ctx.set('Access-Control-Allow-Origin', '*')
+  ctx.set('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
+  next()
+})
 
-    // 延迟1s
-    await new Promise(resolve => {
-      setTimeout(() => {
-        resolve()
-      }, 300)
-    })
-    ctx.body = data
+app.use(bodyParser())
+
+app.use(async (ctx) => {
+  let url = ctx.request.url
+  const replaceAPI = ctx.request.url.startsWith('/api')
+  let filePath = path.join(__dirname, (replaceAPI ? ctx.request.path.replace('/api/', '') : ctx.request.path).replace('/query', '').replace('/delete', '') + '.json')
+  let data
+
+  if (fs.existsSync(filePath)) {
+    try {
+      data = jsonfile.readFileSync(filePath)
+    } catch (err) {
+      console.error('request: ' + url + ' fail!!!')
+    }
+  } else {
+    console.warn('request: ' + url + ' not exist!!!!')
+  }
+
+  // 延迟1s
+  await new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, 300)
   })
+
+  ctx.set('Content-Type', 'application/json')
+  ctx.body = data
+})
 
 const port = 18080
 const server = http.createServer(app.callback())
-server.listen(port, () => {
-  console.log(`服务器启动成功，mock数据端口号：${port}`)
-})
+server.listen(port)
 console.log(`'localhost:${port} listen!!!`)
-
-// app.listen(8080, () => {
-//   console.log(`服务器启动成功，mock数据端口号：8080`)
-// })
