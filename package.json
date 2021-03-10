@@ -13,7 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
     "commit": "git cz",
-    "mock": "node ./mock/server.js"
+    "mock": "pm2 start ./mock/server.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -24,6 +24,7 @@
     "jsonfile": "^6.1.0",
     "koa-bodyparser": "^4.3.0",
     "mockjs": "^1.1.0",
+    "pm2": "^4.5.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
